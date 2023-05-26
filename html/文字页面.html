@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+        <legend>账号信息</legend>
+        姓名:<input value="名字" ><br>
+        昵称:<input value="昵称"  readonly=""><br>
+        密码:<input type="password" value="pwd" size="50"><br>
+        </fieldset>
+
+        <fieldset>
+        <legend>其他信息</legend>
+        性别:<input type="radio" name="gender" id="radio1" value="male" checked=""><label for="radio1">男</label>
+             <input type="radio" name="gender" id="radio2" value="female"><label for="radio2">女</label><br>
+        爱好:<input type="checkbox" name="love" value="eat">吃饭
+             <input type="checkbox" name="love" value="sleep">睡觉
+             <input type="checkbox" name="love" value="bat">打豆豆<br>
+             <input type="submit" value="提交按钮">
+             <input type="reset" value="重置按钮"><br>
+        </fieldset>
+             <form>
+                <select>
+                    <option>小学</option>
+                    <option>初中</option>
+                    <option>高中</option>
+                    <option>大学</option>
+                    <option selected="">研究生</option>
+                </select>
+                <br><br><br>
+        
+                <select size="3">
+                    <option>小学</option>
+                    <option>初中</option>
+                    <option>高中</option>
+                    <option>大学</option>
+                    <option>研究生</option>
+                </select>
+                <br><br><br>
+        
+                <select multiple="">
+                    <option>小学</option>
+                    <option>初中</option>
+                    <option selected="">高中</option>
+                    <option selected="">大学</option>
+                    <option>研究生</option>
+                </select>
+                <br><br><br>
+                
+                <input type="text" list="myData">
+                <datalist id="myData">
+                    <option>本科</option>
+                    <option>研究生</option>
+                    <option>不明</option>
+                </datalist>
+                
+                
+            </form>
+
+    </form>
+</body>
+</html>

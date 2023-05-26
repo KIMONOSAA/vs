@@ -1,0 +1,141 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="E:\vs\tool\duomeiti\css\font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽元素</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+        .two{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            left: 300px;
+            top: 100px;
+            border:1px solid #000;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" draggable="true"></div>
+    <div class="two"></div>
+    <script>
+        var box = document.querySelector('.box')
+        var two = document.querySelector('.two')
+        
+
+        box.ondragstart =function(){ //当拖拽开始时调用
+            console.log('拖拽开始');
+        }
+        box.ondragleave = function(){ //当鼠标离开拖拽元素时调用
+            console.log('拖拽离开');
+        }
+
+        box.ondragend = function(){//当拖拽结束时调用
+            console.log('拖拽结束');
+            console.log("------------");
+        }
+        box.ondrag = function(){//整个拖拽过程都会调用
+            console.log('拖拽');
+        }
+
+        two.ondragenter = function(){
+            console.log('来了');
+        }
+
+        two.ondragleave = function(){
+            console.log('走了');
+        }
+
+        two.ondragover = function(e){
+            e.preventDefault();
+            console.log('over...')
+        }
+
+        two.ondrop = function(){
+            console.log('松开鼠标了....');
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+        .one > div,.two > div{
+            width: 98px;
+            height: 98px;
+            border: 1px solid #000;
+            border-radius: 50%;
+            background-color: red;
+            float: left;
+            text-align: center;
+            line-height: 98px;
+        }
+        .two{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            position: absolute;
+            left: 600px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="one">
+        <div draggable="true">1</div>
+        <div draggable="true">2</div>
+        <div draggable="true">3</div>
+        <div draggable="true">4</div>
+        <div draggable="true">5</div>
+        <div draggable="true">6</div>
+        <div draggable="true">7</div>
+        <div draggable="true">8</div>
+    </div>
+    <div class="two"></div>
+
+    <script>
+        var boxs = document.querySelectorAll('.one div');
+        var two = document.querySelector('.two');
+        var temp = null;
+
+        for(var i = 0;i<boxs.length;i++){
+            boxs[i].ondragstart = function(){
+                temp = this;
+                console.log(temp);
+
+            }
+
+            boxs[i].ondragend = function(){
+                temp = null;
+                console.log(temp);
+            }
+        }
+
+        two.ondragover = function(e){
+            e.preventDefault();
+        }
+        two.ondrop = function(){
+            this.appendChild(temp);
+        }
+    </script>
+</body>
+</html>

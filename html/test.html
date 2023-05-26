@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>只因你太美</title>
+    <style type="text/css">
+		.backtop{
+			position: fixed;
+			bottom: 100px;
+			right: 30px;
+			width: 60px;
+			height: 60px;
+			background-color: gray;
+			text-align: center;
+			line-height:30px;
+			color:white;
+			text-decoration: none;   /*去掉超链接的下划线*/
+		}
+       *{
+            margin: 0;
+            padding: 0;
+       }
+       body{
+            padding-top: 60px;
+            _padding-top:0;
+       }
+       .nav{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #333;
+        z-index: 999999999;
+       }
+       .inner_c{
+        width: 1000px;
+        height: 60px;
+        margin: 0 auto;
+       }
+       .inner_c ul{
+        list-style: none;
+
+       }
+       .inner_c ul li{
+        float: left;
+        width: 100px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+
+       }
+       .inner_c ul li a{
+        display: block;
+        width: 100px;
+        height: 60px;
+        color: white;
+        text-decoration: none;
+       }
+       .inner_c ul li a:hover{
+        background-color: gold;
+       }
+
+	</style>
+</head>
+<body link="red" alink="blue" vlink="green">
+    <h3>我是三级标签</h3>
+    <img src="" alt="">
+    <p align="center"><a href="https://www.jd.com">我是超链接,可以点击一下</a></p>
+    <hr size="5" width="1000" color="#ff0000">
+    <h5 align="left">哎呦</h5><h5 align="right">你干嘛！</h5>
+    <div class="nav">
+        <div class="inner_c">
+            <ul>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+                <li><a href="#">网页栏目</a></li>
+            </ul>
+        </div>
+    </div>
+    <marquee behavior="alternate" direction="right"  width="1000" height="50" bgcolor=""><div><a name="name1">我套你猴子</a></div></marquee>
+    
+    <font face="微软雅黑" color="#FF0000" size="10">logo</font>
+    <pre>
+    <a href="文字页面.html" target="myframe">默认文字显示文字页面</a>
+    <a href="图片页面.html" target="myframe">点击进入图片页面</a>
+    <a href="表格页面.html" target="myframe">点击进入表格页面</a>
+    <a href="视频页面.html" target="myframe">点击进入视频页面</a>
+    <a href="简单播放器.html" target="myframe">点击进入视频页面</a>
+    <iframe src="文字页面.html" width="500" height="500" name="myframe"></iframe>
+    我的<img src="E:\vs\html\image\01.webp" width="800" height="500" alt="我的老婆" title="我的老婆" align="">老婆
+    <a href="HTML5详解2.html" title="faku" target="_blank">拖拽事件</a>
+    <a href="HTML5详解3.html" title="faku" target="_blank">HTML5详解</a>
+    <a href="全屏应用.html" title="faku" target="_blank">全屏应用</a>
+    <a href="简单播放器.html" title="faku" target="_blank">播放器功能</a>
+    <a href="表单属性.html" title="表单属性">表单属性</a>
+    <a href="表单类型.html" title="表单类型">表单类型</a>
+    <a href="表单事件.html" title="表单事件">表单事件</a>
+    <a href="多媒体.html" title="多媒体">多媒体</a>
+    </pre>
+    <a class="backtop" href="#name1">回到猴子</a>
+    <a href="mailto:3248034755@qq.com">点击进入我的邮箱</a>
+    <script>
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(successCallback,errorCallback);
+
+        }else{
+            console.log('sorry,你的浏览器不支持地理位置！');
+        }
+
+        function successCallback(position){
+            var wd = position.coords.latitude;
+            var jd = position.coords.longitude;
+
+            console.log('获取用户位置成功！');
+            console.log(wd+'------'+jd);
+
+        }
+        function errorCallback(error){
+            console.log(error);
+            console.log('获取用户位置失败！');
+        }
+        window.addEventListener('online', function () {
+            alert('网络连接建立！');
+        });
+
+        window.addEventListener('offline', function () {
+            alert('网络连接断开！');
+        })
+    </script>
+</body>
+</html>
