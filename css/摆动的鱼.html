@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .shark{
+            width: 509px;
+            height: 270px;
+            border: 1px solid #000;
+            background: url(E:/vs/html/JS-Demo/images/shark.png) left top;
+            animation: sharkRun 1s steps(8) infinite;
+        }
+        .sharkBox{
+            width: 509px;
+            height: 270px;
+            animation: sharkBoxRun 20s linear infinite;
+        }
+        @keyframes sharkRun {
+            0%{
+
+            }
+            100%{
+                background-position: left -2160px;
+            }
+        }
+        @keyframes sharkBoxRun{
+            0%{
+                transform: translateX(-600px);
+            }
+            100%{
+                transform: translateX(3000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sharkBox">
+        <div class="shark"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!-- 缩放
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 1000px;
+            margin: 100px auto;
+        }
+        .box div{
+            width: 300px;
+            height: 150px;
+            background-color: pink;
+            float: left;
+            margin-right: 15px;
+            color: white;
+            text-align: center;
+            font: 400 30px/150px "宋体";
+        }
+        .box .box2{
+            background-color: green;
+            transition: all 1s;
+        }
+        .box .box2:hover{
+            background-color: yellowgreen;
+            transform: scale(2,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+    </div>
+</body>
+</html> -->
+<!-- 位移 -->
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 1000px;
+            margin: 100px auto;
+        }
+
+        .box > div {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #000;
+            background-color: red;
+            float: left;
+            margin-right: 30px;
+        }
+        div:nth-child(2) {
+            background-color: pink;
+            transition: all 1s;
+        }
+
+        /* translate:(水平位移，垂直位移)*/
+        div:nth-child(2):hover {
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+<body>
+<div class="box">
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</div>
+
+</body>
+</html> -->
+<!-- 旋转 -->
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 50px auto;
+            color: #fff;
+            font-size: 50px;
+            transition: all 2s; /* 过渡：让盒子在进行 transform 转换的时候，有个过渡期 */
+        }
+
+        /* rotate（角度）旋转 */
+        .box:hover {
+            transform: rotate(-405deg); /* 鼠标悬停时，让盒子进行旋转 */
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">1</div>
+
+</div>
+</body>
+</html> -->
+
+<!-- 小火箭 -->
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html,body{
+            height:100%;
+        }
+
+        body{
+            background-color: #DE8910;
+        }
+        .rocket{
+            position: absolute;
+            left:100px;
+            top:600px;
+            height: 120px;
+            transform:translate(-200px ,200px) rotate(45deg);
+            transition:all 1s ease-in;
+        }
+
+        body:hover .rocket{
+            transform:translate(500px,-500px) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <img  class="rocket" src="http://img.smyhvae.com/20180208-rocket.png" alt=""/>
+</body>
+</html> -->
+
+<!-- 没有图片 -->
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            /*background-color: #eee;*/
+        }
+
+        .box {
+
+            width: 300px;
+            height: 440px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            transition: all 1.5s;
+            position: absolute;     /* 既然扑克牌是叠在一起的，那就都用绝对定位 */
+            left: 0;
+            top: 0;
+
+            transform-origin: center bottom; /*旋转时，以盒子底部的中心为坐标原点*/
+            box-shadow: 0 0 3px 0 #666;
+        }
+
+        .box:hover img:nth-child(6) {
+            transform: rotate(-10deg);
+        }
+
+        .box:hover img:nth-child(5) {
+            transform: rotate(-20deg);
+        }
+
+        .box:hover img:nth-child(4) {
+            transform: rotate(-30deg);
+        }
+
+        .box:hover img:nth-child(3) {
+            transform: rotate(-40deg);
+        }
+
+        .box:hover img:nth-child(2) {
+            transform: rotate(-50deg);
+        }
+
+        .box:hover img:nth-child(1) {
+            transform: rotate(-60deg);
+        }
+
+        .box:hover img:nth-child(8) {
+            transform: rotate(10deg);
+        }
+
+        .box:hover img:nth-child(9) {
+            transform: rotate(20deg);
+        }
+
+        .box:hover img:nth-child(10) {
+            transform: rotate(30deg);
+        }
+
+        .box:hover img:nth-child(11) {
+            transform: rotate(40deg);
+        }
+
+        .box:hover img:nth-child(12) {
+            transform: rotate(50deg);
+        }
+
+        .box:hover img:nth-child(13) {
+            transform: rotate(60deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+    <img src="images/pk2.png"/>
+    <img src="images/pk1.png"/>
+</div>
+</body>
+</html> -->
+

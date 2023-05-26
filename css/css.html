@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel="stylesheet" type="text/css" href="a.css"></link>
+  <title>Document</title>
+
+	<style type="text/css">
+		.div1{
+			width: 0;
+			height: 0;
+			border-top: 30px solid red;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+		}
+		ul{
+			list-style: none;/*去掉列表前面的圆点*/
+			width: 600px;
+			height: 60px;
+			background-color: black;/*设置整个导航栏的背景为灰色*/
+			
+		}/*内嵌*/
+
+		li{
+			float: left;/*平铺*/
+			margin-right: 30px;
+			margin-top: 16px;
+		}
+
+		a{
+			text-decoration: none;/*去掉超链的下划线*/
+			font-size: 20px;
+			color: #BBBBBB;/*设置超链的字体为黑色*/
+			font-family:微软雅黑;
+		}
+        div{
+            height: 465px;
+            background-image: url(https://img.zcool.cn/community/01mnffkblb2ekgh32dti5c3135.jpg);
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+		/* 让超链接点击之前是红色的 */
+		a:link{
+			color: red;
+		}
+		/* 让超链接点击之后是绿色的 */
+		a:visited{
+			color:green;
+		}
+		/* 鼠标悬停，放到标签上的时候 */
+		a:hover{
+			color:black;
+		}
+		/* 鼠标点击链接，但是不松手的时候 */
+		a:active{
+			color: black;
+		}
+		/* 记住在css中，这四种转态必须按照固定的顺序写 */
+		
+	</style>
+
+ </head>
+ <body>
+	<ul>
+		<li><a href="">博客园</a></li>
+		<li><a href="">新随笔</a></li>
+		<li><a href="">联系</a></li>
+		<li><a href="">订阅</a></li>
+		<li><a href="">管理</a></li>
+
+	</ul>
+	<div></div>
+	<p style="color:blue">行内样式</p>
+	<div class="div1"></div>
+ </body>
+</html>
