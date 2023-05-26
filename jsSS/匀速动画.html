@@ -1,0 +1,112 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button>动画</button>
+    <div class="box" style="left:0px"></div>
+    <script>
+        var btn = document.getElementsByTagName("button")[0];
+        var div = document.getElementsByTagName("div")[0];
+
+        btn.onclick = function(){
+            setInterval(function(){
+                console.log(parseInt(div.style.left));
+
+                div.style.left = div.offsetLeft + 100 + 'px';
+            },500)
+        };
+    </script>
+</body>
+</html> -->
+
+<!-- 匀速动画的封装：每间隔30ms，移动盒子10px【重要】 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            margin: 0;
+            padding: 5px;
+            height: 300px;
+            background-color: #ddd;
+            position: relative;
+        }
+        button{
+            margin: 5px;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 195px;
+            top: 40px;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 0;
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <button>运动到 left = 200px</button>
+        <button>运动到 left = 400px</button>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+    <script>
+        var btnArr = document.getElementsByTagName("button");
+        var box2 = document.getElementsByClassName("box2")[0];
+        var box3 = document.getElementsByClassName("box3")[0];
+    
+        btnArr[0].onclick = function(){
+            animate(box2,200);
+            animate(box3,200);
+        }
+        btnArr[1].onclick = function(){
+            animate(box2,400);
+            animate(box3,400);
+        }
+    
+        function animate(ele,target){
+            clearInterval(ele.timer);
+    
+            var speed = target > ele.offsetLeft ? 10 : -10;
+            ele.timer = setInterval(function() {
+                var val = target - ele.offsetLeft ;
+                ele.style.left = ele.offsetLeft + speed + "px";
+    
+                if(Math.abs(val) < Math.abs(speed))
+                {
+                    ele.style.left = target + "px";
+                    clearInterval(ele.timer);
+                }
+            },30)
+        }
+    </script>
+</body>
+
+</html>

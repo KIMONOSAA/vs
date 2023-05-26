@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let dataList = [
+            {
+                title:'品牌鞋子，高品质低价入手',
+                publishTime:200,
+            },
+            {
+                title:'不是很贵，但是很暖',
+                publishTime:100,
+            },
+            {
+                title:'无法拒绝的美食，跟我一起吃',
+                publishTime:300,
+            },
+        ];
+
+        console.log('qianguyihao 排序前的数组: ' + JSON.stringify(dataList));
+
+        dataList.sort((a,b) => parseInt(a.publishTime) - parseInt(b.publishTime));
+
+        console.log('qianguyihao 排序后的数组:'+JSON.stringify(dataList))
+    </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="btn">我是按钮，请点击我</div>
+
+        <script>
+            var btn = document.getElementById('btn');
+            //2.绑定事件
+            btn.onclick = function() {
+                console.log('点击按钮后，要做的事情');
+            };
+            
+        </script>
+    </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        //window.onload页面加载完毕以后再执行此代码
+        window.onload = function () {
+            //需求：鼠标放到img上，更换为另一张图片，也就是修改路径（src的值）。
+            //步骤：
+            //1.获取事件源
+            //2.绑定事件
+            //3.书写事件驱动程序
+
+            //1.获取事件源
+            var img = document.getElementById("box");
+            //2.绑定事件(悬停事件：鼠标进入到事件源中，立即触发事件)
+            img.onmouseover = function () {
+                //3.书写事件驱动程序(修改src)
+                img.src = "image/jd2.png";
+//                this.src = "image/jd2.png";
+            }
+
+            //2.绑定事件(悬停事件：鼠标进入到事件源中，立即触发事件)
+            img.onmouseout = function () {
+                //3.书写事件驱动程序(修改src)
+                img.src = "image/jd1.png";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<img id="box" src="image/jd1.png" style="cursor: pointer;border: 1px solid #ccc;"/>
+
+</html>

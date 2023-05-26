@@ -1,0 +1,274 @@
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .main {
+            margin: 0 auto;
+            width: 1000px;
+            margin-top: 10px;
+
+        }
+
+        #Q-nav1 {
+            overflow: hidden;
+        }
+
+        .fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style> 
+
+    引入工具js 
+     <script src="toolss.js"></script>
+    <script>
+        window.onload = function () {
+            //需求1：当我们滚动界面的时候，被卷曲的头部如果超过第二个盒子距离顶部的位置，那么直接给第二个盒子加类名.fixed
+            //需求2：当我们滚动界面的时候，被卷曲的头部如果小于第二个盒子距离顶部的位置，那么直接给第二个盒子取消类名.fixed
+
+            //1.老三步。
+            var topDiv = document.getElementById("top");
+            var height = topDiv.offsetHeight;
+            var middle = document.getElementById("Q-nav1");
+            var main = document.getElementById("main");
+
+            window.onscroll = function () {
+                //2.判断 ，被卷曲的头部的大小
+                if (scroll().top > height) {
+                    //3.满足条件添加类，否则删除类
+                    middle.className += " fixed";
+                    //第二个盒子也要占位置，为了避免重叠，我们给第三个盒子一个上padding的空间，把这个空间留给第二个盒子
+                    main.style.paddingTop = middle.offsetHeight + "px";
+                } else {
+                    middle.className = "";
+                    //清零
+                    main.style.paddingTop = 0;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div class="top" id="top">
+    <img src="E:\vs\jsSS\images\08.webp" alt=""/>
+</div>
+<div id="Q-nav1">
+    <img src="E:\vs\jsSS\images\09.webp" alt=""/>
+</div>
+<div class="main" id="main">
+    <img src="E:\vs\jsSS\images\10.webp" alt=""/>
+</div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<button>运动到200</button>
+<button>运动到400</button>
+<div></div>
+
+<script>
+
+    var btn = document.getElementsByTagName("button");
+    var div = document.getElementsByTagName("div")[0];
+
+    btn[0].onclick = function () {
+        animate(div, 200);
+    }
+
+    btn[1].onclick = function () {
+        animate(div, 400);
+    }
+
+    //缓动动画封装
+    function animate(ele, target) {
+        //要用定时器，先清定时器
+        //一个萝卜一个坑儿，一个元素对应一个定时器
+        clearInterval(ele.timer);
+        //定义定时器
+        ele.timer = setInterval(function () {
+            //获取步长
+            //步长应该是越来越小的，缓动的算法。
+            var step = (target - ele.offsetLeft) / 10;
+            //对步长进行二次加工(大于0向上取整,小于0向下取整)
+            //达到的效果是：最后10像素的时候都是1像素1像素的向目标位置移动，就能够到达指定位置。
+            step = step > 0 ? Math.ceil(step) : Math.floor(step);
+            //动画原理： 目标位置 = 当前位置 + 步长
+            ele.style.left = ele.offsetLeft + step + "px";
+            console.log(step);
+            //检测缓动动画有没有停止
+            console.log("smyhvae");
+            if (Math.abs(target - ele.offsetLeft) <= Math.abs(step)) {
+                //处理小数赋值
+                ele.style.left = target + "px";
+                clearInterval(ele.timer);
+            }
+        }, 30);
+    }
+
+</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window.scrollto返回到顶部小火箭</title>
+    <style>
+        img{
+            position: fixed;
+            bottom: 100px;
+            right: 50px;
+            cursor: pointer;
+            display: none;
+            border: 1px solid #000;
+        }
+        div{
+            width: 1210px;
+            margin: 100px auto;
+            text-align: center;
+            font: 500 26px/35px "simsun";
+            color: red;
+        }
+    </style>
+    <script src="tools.js"></script>
+    <script>
+        window.onload = function(){
+            var img = document.getElementsByTagName("img")[0];
+            window.onscroll = function(){
+                if(scroll().top > 1000){
+                    img.style.display = "block";
+                }else{
+                    img.style.display = "none";
+                }
+                leader = scroll().top;
+            }
+            var timer = null;
+            var target = 0;
+            var leader = 0;
+            img.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    var step = (target - leader)/10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader = leader + step;
+                    window.scrollTo(0,leader);
+
+                    if(leader === 0){
+                        clearInterval(timer);
+                    }
+                },25);
+            }
+        }
+    </script>
+</head>
+<body>
+    <img src="E:\vs\jsSS\images\01.webp"/>
+<div>
+    我是最顶端.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+    生命壹号，永不止步.....<br>
+</div>
+</body>
+</html> -->
