@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background: #000;
+        }
+        .wasp{
+            width: 3250px;
+            height: 750px;
+            padding: 10px 0 0 10px;
+            margin: 100px auto 0;
+            background: #000;
+            overflow: hidden;
+            border: 1px solid white;
+        }
+        .wasp li{
+            float:left;
+            margin: 0 10px 10px 0;
+        }
+        .wasp img{
+            display: block;
+            border: 0;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script>
+       jQuery(window).ready(function () {
+            //需求：鼠标放入li中，其他的li半透明，当前盒子的opacity值为1
+            $(".wasp").find("li").mouseenter(function () {
+                //链式编程
+                $(this).css("opacity", 1).siblings("li").css("opacity", 0.001);
+            });
+
+            //离开wrap的时候所有的li的全部opacity值为1；
+            $(".wasp").mouseleave(function () {
+                $(this).children().children("li").css("opacity", 1);
+//                $(".wrap li").css("opacity",1);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wasp">
+        <ul>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\02.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\03.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\04.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\09.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+            <li><a href="#"><img src="E:\vs\jsSS\images\01.webp" alt="" /></a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .wrap{
+            width: 330px;
+            height: 30px;
+            margin: 100px auto 0;
+            padding-left: 10px;
+            background-color: pink;
+        }
+        .wrap li {
+            background-color: yellowgreen;
+        }
+        .wrap > ul > li{
+            float: left;
+            margin-right: 10px;
+            position: relative;
+        }
+        .wrap a{
+            display: block;
+            height: 30px;
+            width: 100px;
+            text-decoration: none;
+            color: #000;
+            line-height: 30px;
+            text-align: center;
+        }
+        .wrap li ul{
+            position: absolute;
+            top: 30px;
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var jqli = $(".wrap>ul>li");
+
+            jqli.mouseenter(function(){
+                $(this).children("ul").show();
+            });
+
+            jqli.mouseleave(function(){
+                $(this).children("ul").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    
+    <div class="wrap">
+        <ul>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0);">一级菜单1</a>
+                <ul>
+                    <li><a href="javascript:void(0);">二级菜单1</a></li>
+                    <li><a href="javascript:void(0);">二级菜单2</a></li>
+                    <li><a href="javascript:void(0);">二级菜单3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var jqli1 = $("li:odd");
+            var jqli2 = $("li:even");
+            jqli1.css("background","#cccccc");
+            jqli2.css("background","white");
+
+            color = ""
+            $("li").mouseenter(function(){
+                color = $(this).css("background");
+                $(this).css("background","red")
+            });
+
+            $("li").mouseleave(function(){
+                $(this).css("background",color);
+            });
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>我推的孩子：星野爱</li>
+        <li>日在校园：伊藤诚</li>
+        <li>回复术士的重生：棍勇</li>
+        <li>无职转生：艾莉丝</li>
+        <li>为美好的世界献上祝福：鬼畜和真</li>
+    </ul>
+</body>
+</html>
+

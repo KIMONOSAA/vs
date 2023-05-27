@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+        th,td{
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+        th{
+            background-color: #09c;
+            font: bold 16px "微软雅黑";
+            color: #fff;
+        }
+        td{
+            font: 14px "微软雅黑";
+        }
+        tbody tr{
+            background-color: #f0f0f0;
+        }
+        tbody tr:hover{
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var data = [{
+                name:"博客园",
+                url:"http://www.cnblogs.com/smyhvae/",
+                type:"程序员的精神家园"
+            },{
+                name:"CodeForces",
+                url:"https://codeforces.com/",
+                type:"俄国算法竞赛平台"
+            },{
+                name:"Atcoder",
+                url:"https://atcoder.jp/",
+                type:"日本算法竞赛平台"
+            }];
+
+            $("input").click(function(){
+                var str = "";
+                for(var i = 0;i<data.length;i++)
+                {
+                    str += "<tr><td>"+data[i].name +"</td><td>"+data[i].url+"</td><td>"+data[i].type+"</td><tr>"
+                }
+
+                $("#j_tbData").html(str);
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="获取数据" id="j_btnGetData" />
+    <table>
+        <thead>
+            <tr>
+                <th>网站名</th>
+                <th>网站链接</th>
+                <th>网站内容</th>
+            </tr>
+        </thead>
+        <tbody id="j_tbData">
+
+        </tbody>
+    </table>
+</body>
+</html>

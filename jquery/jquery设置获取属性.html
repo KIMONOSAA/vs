@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .aaa {
+        border: 1px solid red;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.1/dist/jquery.min.js"></script>
+    <script>
+      $(function () {
+        var jqinp = $("input").eq(0);
+        var jqinp2 = $("input:checkbox");
+        var jqbtn = $("button");
+
+        jqbtn.click(function () {
+          jqinp.attr("title", 111);
+          console.log(jqinp.attr("title"));
+
+          jqinp.attr("aaa", 111);
+          console.log(jqinp.attr("aaa"));
+
+          jqinp.attr("class", "aaa");
+          console.log(jqinp.attr("class"));
+
+          jqinp.removeAttr("class");
+          console.log(jqinp.attr("class"));
+
+          jqinp2.prop("checked", true);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>绑定</button>
+    <input type="text" />
+    <input type="checkbox" />
+  </body>
+</html>
